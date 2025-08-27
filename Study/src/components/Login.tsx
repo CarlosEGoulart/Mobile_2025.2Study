@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, TextInput, Button } from "react-native";
+import { StyleSheet, View, Text, TextInput, Button, TouchableOpacity } from "react-native";
 import React from "react";
 
 export default function Login() {
@@ -62,21 +62,54 @@ export default function Login() {
         secureTextEntry={true}
       />
 
-      <Button
-        title="Reset Password"
-        onPress={handleReset}
-        disabled={!passValid}
-      />
-      <Button title="Login" onPress={handleLogin} />
+      <TouchableOpacity style={styles.button} onPress={handleReset} disabled={!passValid}>
+        <Text style={styles.buttonText}>Reset Password</Text>
+        </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 24,
+    backgroundColor: '#303030ff',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 16,
+    marginBottom: 8,
+  },
   input: {
+    width: 250,
     height: 40,
     margin: 12,
     borderWidth: 1,
     padding: 10,
+    borderRadius: 8,
+    borderColor: '#202020ff',
+    backgroundColor: '#dbdbdbff',
+    marginBottom: 12,
+    paddingHorizontal: 10,
   },
+  button: {
+    backgroundColor: '#1d1d1dff',
+    padding: 10,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 12,
+  },
+  buttonText: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+  },
+
 });
+
