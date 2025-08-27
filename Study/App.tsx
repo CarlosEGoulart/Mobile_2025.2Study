@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
-import Login from './src/components/Login'
+import Login from './src/components/Post/Login'
 import Post from "./src/components/Post/index"
 import SearchBar from './src/components/Post/SearchBar';
-import React from 'react';
+import React, { useState } from 'react';
+import AppState from './src/components/AppState';
 
 export default function App() {
   const handleSearch = (keywords: string) => {
@@ -11,12 +12,12 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <Text>Carlosgram</Text>
+{/*     <Text>Carlosgram</Text>
       <Text>----Pesquisa----</Text>
       <SearchBar handleSearch={handleSearch}/>
-      <Text>----Login----</Text>
+      <Text>----Login----</Text>*/}
       <Login />
-      <Text>----Posts----</Text>
+{/*}      <Text>----Posts----</Text>
       <Post author='Julia' 
         content='Photo' 
         title='Foto na faculdade' 
@@ -27,7 +28,8 @@ export default function App() {
         title='Foto na academia' 
         likes={1} 
       />
-
+*/}
+{/*      <AppState /> */}
     </View>
   );
 }

@@ -1,5 +1,5 @@
 import { StyleSheet, View, Text, TextInput, Button, TouchableOpacity } from "react-native";
-import React from "react";
+import React = require('react');
 
 export default function Login() {
   const [username, onChangeUser] = React.useState("");
@@ -10,6 +10,7 @@ export default function Login() {
   const handleLogin = () => {
     console.log("Usuario: " + username);
     console.log("Senha: " + password);
+    console.log("Confirmação de senha: " + passConfirm);
   };
 
   let handleReset = () => {
@@ -31,6 +32,9 @@ export default function Login() {
     ) {
       setPassValid(true);
     } 
+    else{
+      setPassValid(false);
+    }
     
   }, [password, passConfirm]);
 
@@ -62,9 +66,7 @@ export default function Login() {
         secureTextEntry={true}
       />
 
-      <TouchableOpacity style={styles.button} onPress={handleReset} disabled={!passValid}>
-        <Text style={styles.buttonText}>Reset Password</Text>
-        </TouchableOpacity>
+      <Button title="Reset Password" onPress={handleReset} disabled={!passValid}></Button>
 
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>
